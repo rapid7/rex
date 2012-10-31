@@ -25,9 +25,9 @@ class Metasploit3 < Msf::Post
 				are set it pulls the current user, else it will pull the user's settings
 				specified SID and target host.
 			},
-			'Author'      => [ 'mubix <mubix[at]hak5.org>' ],
+			'Author'      => [ 'mubix' ],
 			'License'     => MSF_LICENSE,
-			'Platform'      => [ 'windows' ],
+			'Platform'      => [ 'win' ],
 			'SessionTypes'  => [ 'meterpreter' ]
 		)
 

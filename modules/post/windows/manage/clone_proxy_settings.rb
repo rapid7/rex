@@ -10,6 +10,7 @@
 ##
 
 require 'msf/core'
+require 'msf/core/auxiliary/report'
 
 class Metasploit3 < Msf::Post
 
@@ -24,9 +25,9 @@ class Metasploit3 < Msf::Post
 				targeted user SID, supports remote hosts as well if remote registry
 				is allowed.
 			},
-			'Author'      => [ 'mubix <mubix[at]hak5.org>' ],
+			'Author'      => [ 'mubix' ],
 			'License'     => MSF_LICENSE,
-			'Platform'      => [ 'windows' ],
+			'Platform'      => [ 'win' ],
 			'SessionTypes'  => [ 'meterpreter' ]
 		)
 
