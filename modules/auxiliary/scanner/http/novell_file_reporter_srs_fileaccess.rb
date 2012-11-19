@@ -69,8 +69,8 @@ class Metasploit4 < Msf::Auxiliary
 				'version' => '1.1',
 				'method'  => 'POST',
 				'ctype'   => "text/xml",
-				'data'    => message,
-			}, 5)
+				'data'    => message
+			})
 
 		if res and res.code == 200 and not res.body =~ /<RESULT>/
 			loot = res.body
