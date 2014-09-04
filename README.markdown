@@ -16,6 +16,7 @@ $ gem install rex
 ```
 
 # Credits
-The Metasploit Community
-Jacob Hammack <https://github.com/hammackj>
-Rapid7 <http://www.rapid7.com/>
+
+* The Metasploit Community
+* Jacob Hammack <https://github.com/hammackj>
+* Rapid7 <http://www.rapid7.com/>
