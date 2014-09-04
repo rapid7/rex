@@ -31,5 +31,5 @@ begin
 	
 	sock.close
 rescue Exception => e
-	puts "#{e.messaage}\n#{e.backtrace}\n\n"
+	puts "#{e.message}\n#{e.backtrace}\n\n"
 end
