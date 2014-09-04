@@ -27,27 +27,7 @@ SimpleCov.configure do
 		}
 	end
 
-	#
-	# Framework (msf) related groups
-	#
-
-	add_group 'Metasploit Framework', 'lib/msf'
-	add_group 'Metasploit Framework (Base)', 'lib/msf/base'
-	add_group 'Metasploit Framework (Core)', 'lib/msf/core'
-
-	#
-	# Other library groups
-	#
-
-	add_group 'Fastlib', 'lib/fastlib'
-	add_group 'Metasm', 'lib/metasm'
-	add_group 'PacketFu', 'lib/packetfu'
 	add_group 'Rex', 'lib/rex'
-	add_group 'RKelly', 'lib/rkelly'
-	add_group 'Ruby Mysql', 'lib/rbmysql'
-	add_group 'Ruby Postgres', 'lib/postgres'
-	add_group 'SNMP', 'lib/snmp'
-	add_group 'Zip', 'lib/zip'
 
 	#
 	# Specs are reported on to ensure that all examples are being run and all
