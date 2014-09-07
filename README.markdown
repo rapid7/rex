@@ -17,6 +17,7 @@ $ gem install rex
 
 # Credits
 
-* The Metasploit Community
-* Jacob Hammack <https://github.com/hammackj>
-* Rapid7 <http://www.rapid7.com/>
+* [The Metasploit Community](https://github.com/rapid7/metasploit-framework)
+* [Jacob Hammack](https://github.com/hammackj) for initially extracting rex from Metasploit
+* [Aaron Paterson](https://github.com/tenderlove) for letting us repurpose the 'rex' gem name
+* [Rapid7](http://www.rapid7.com/) for continued support
