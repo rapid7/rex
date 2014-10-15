@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 APP_NAME = "rex"
-VERSION  = "2.0.3"
+VERSION  = "2.0.4"
 
 Gem::Specification.new do |s|
   s.name                  = APP_NAME
