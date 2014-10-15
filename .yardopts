@@ -2,6 +2,6 @@
 --exclude samples/
 --exclude \.ut\.rb/
 --exclude \.ts\.rb/
---files CONTRIBUTING.md,COPYING,HACKING,LICENSE,README.markdown
+--files LICENSE,README.markdown
 lib/rex/**/*.rb
 examples/**
