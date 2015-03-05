@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 APP_NAME = "rex"
-VERSION  = "2.0.7"
+VERSION  = "2.0.8"
 
 Gem::Specification.new do |s|
   s.name                  = APP_NAME
@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.require_paths         = ["lib"]
   s.extra_rdoc_files      = ["README.markdown"]
   s.platform              = "ruby"
-  s.required_ruby_version = ">= 1.9.3"
+  s.required_ruby_version = ">= 2.1.5"
 end
