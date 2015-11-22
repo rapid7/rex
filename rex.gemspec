@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 APP_NAME = "rex"
-VERSION  = "2.0.8"
+VERSION  = "2.0.9"
 
 Gem::Specification.new do |s|
   s.name                  = APP_NAME
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description           = "Rex provides a variety of classes useful for security testing and exploit development."
   s.license               = "BSD"
   s.authors               = ["HD Moore", "Jacob Hammack"]
-  s.email                 = ["hd_moore@rapid7.com", "jacob.hammack@hammackj.com"]
+  s.email                 = ["x@hdm.io", "jacob.hammack@hammackj.com"]
   s.files                 = Dir['rex.gemspec'] + Dir['examples/**'] + Dir['lib/rex.rb'] + Dir['lib/**/*']
   s.require_paths         = ["lib"]
   s.extra_rdoc_files      = ["README.markdown"]

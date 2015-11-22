@@ -1,7 +1,0 @@
---protected
---exclude samples/
---exclude \.ut\.rb/
---exclude \.ts\.rb/
---files LICENSE,README.markdown
-lib/rex/**/*.rb
-examples/**

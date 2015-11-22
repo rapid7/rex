@@ -4,7 +4,6 @@ require 'rex'
 require 'forwardable'
 
 module Rex
-module Exploitation
 module Powershell
   class Script
     attr_accessor :code
@@ -19,7 +18,7 @@ module Powershell
     # eval %Q|def_delegators :@code, :#{::String.instance_methods[0..(String.instance_methods.index(:class)-1)].join(', :')}|
     def_delegators :@code, :each_line, :strip, :chars, :intern, :chr, :casecmp, :ascii_only?, :<, :tr_s,
                    :!=, :capitalize!, :ljust, :to_r, :sum, :private_methods, :gsub, :dump, :match, :to_sym,
-                   :enum_for, :display, :tr_s!, :freeze, :gsub, :split, :rindex, :<<, :<=>, :+, :lstrip!,
+                   :enum_for, :display, :tr_s!, :freeze, :gsub!, :split, :rindex, :<<, :<=>, :+, :lstrip!,
                    :encoding, :start_with?, :swapcase, :lstrip!, :encoding, :start_with?, :swapcase,
                    :each_byte, :lstrip, :codepoints, :insert, :getbyte, :swapcase!, :delete, :rjust, :>=,
                    :!, :count, :slice, :clone, :chop!, :prepend, :succ!, :upcase, :include?, :frozen?,
@@ -38,7 +37,7 @@ module Powershell
 
       begin
         # Open code file for reading
-        fd = ::File.new(code, 'rb')
+        fd = ::File.new(code || '', 'rb')
         while (line = fd.gets)
           @code << line
         end
@@ -94,6 +93,5 @@ module Powershell
       instance_methods.select { |m| m =~ /^(strip|sub)/ }
     end
   end # class Script
-end
 end
 end

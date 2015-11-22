@@ -77,6 +77,22 @@ class Registry
         client, root_key, base_key, perm, response.get_tlv(TLV_TYPE_HKEY).value)
   end
 
+  # Checks if a key exists on the target registry
+  #
+  # @param root_key [String] the root part of the key path. Ex: HKEY_LOCAL_MACHINE
+  # @param base_key [String] the base part of the key path
+  # @return [Boolean] true if the key exists on the target registry, false otherwise, even
+  #   it the session hasn't permissions to access the target key.
+  # @raise [TimeoutError] if the timeout expires when waiting the answer
+  # @raise [Rex::Post::Meterpreter::RequestError] if the parameters are not valid
+  def Registry.check_key_exists(root_key, base_key)
+    request = Packet.create_request('stdapi_registry_check_key_exists')
+    request.add_tlv(TLV_TYPE_ROOT_KEY, root_key)
+    request.add_tlv(TLV_TYPE_BASE_KEY, base_key)
+    response = client.send_request(request)
+    return response.get_tlv(TLV_TYPE_BOOL).value
+  end
+
   #
   # Opens the supplied registry key on the specified remote host. Requires that the
   # current process has credentials to access the target and that the target has the
@@ -380,13 +396,20 @@ class Registry
   # Returns the integer value associated with the supplied registry value
   # type (like REG_SZ).
   #
+  # @see https://msdn.microsoft.com/en-us/library/windows/desktop/ms724884(v=vs.85).aspx
+  # @param type [String] A Windows registry type constant name, e.g. 'REG_SZ'
+  # @return [Integer] one of the `REG_*` constants
   def self.type2str(type)
-    return REG_SZ if (type == 'REG_SZ')
-    return REG_DWORD if (type == 'REG_DWORD')
-    return REG_BINARY if (type == 'REG_BINARY')
-    return REG_EXPAND_SZ if (type == 'REG_EXPAND_SZ')
-    return REG_NONE if (type == 'REG_NONE')
-    return nil
+    case type
+    when 'REG_BINARY'    then REG_BINARY
+    when 'REG_DWORD'     then REG_DWORD
+    when 'REG_EXPAND_SZ' then REG_EXPAND_SZ
+    when 'REG_MULTI_SZ'  then REG_MULTI_SZ
+    when 'REG_NONE'      then REG_NONE
+    when 'REG_SZ'        then REG_SZ
+    else
+      nil
+    end
   end
 
   #

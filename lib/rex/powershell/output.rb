@@ -4,7 +4,6 @@ require 'zlib'
 require 'rex/text'
 
 module Rex
-module Exploitation
 module Powershell
   module Output
     #
@@ -53,7 +52,7 @@ module Powershell
 
       # Build the powershell expression
       # Decode base64 encoded command and create a stream object
-      psh_expression =  '$s=New-Object IO.MemoryStream(,'
+      psh_expression =  "$s=New-Object IO.MemoryStream(,"
       psh_expression << "[Convert]::FromBase64String('#{encoded_stream}'));"
       # Read & delete the first two bytes due to incompatibility with MS
       psh_expression << '$s.ReadByte();'
@@ -76,8 +75,16 @@ module Powershell
     # Return Base64 encoded powershell code
     #
     # @return [String] Base64 encoded powershell code
-    def encode_code
+    def encode_code(eof = nil)
       @code = Rex::Text.encode_base64(Rex::Text.to_unicode(code))
+    end
+
+    #
+    # Return ASCII powershell code from base64/unicode
+    #
+    # @return [String] ASCII powershell code
+    def decode_code
+      @code = Rex::Text.to_ascii(Rex::Text.decode_base64(code))
     end
 
     #
@@ -96,7 +103,7 @@ module Powershell
 
       # Build the powershell expression
       # Decode base64 encoded command and create a stream object
-      psh_expression =  '$s=New-Object IO.MemoryStream(,'
+      psh_expression =  "$s=New-Object IO.MemoryStream(,"
       psh_expression << "[Convert]::FromBase64String('#{encoded_stream}'));"
       # Uncompress and invoke the expression (execute)
       psh_expression << 'IEX (New-Object IO.StreamReader('
@@ -146,6 +153,5 @@ module Powershell
       @code
     end
   end
-end
 end
 end
