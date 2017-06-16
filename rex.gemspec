@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 APP_NAME = "rex"
-VERSION  = "2.0.10"
+VERSION  = "2.0.11"
 
 Gem::Specification.new do |s|
   s.name                  = APP_NAME
@@ -19,13 +19,13 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.2.0"
 
   # Needed for Javascript obfuscation
-  s.add_runtime_dependency 'jsobfu', '~> 0.4.1'
+  s.add_runtime_dependency 'jsobfu'
 
   # Needed for some admin modules (scrutinizer_add_user.rb)
   s.add_runtime_dependency 'json'
 
   # Metasm compiler/decompiler/assembler
-  s.add_runtime_dependency 'metasm', '~> 1.0.2'
+  s.add_runtime_dependency 'metasm'
 
   # Needed by anemone crawler
   s.add_runtime_dependency 'nokogiri'
