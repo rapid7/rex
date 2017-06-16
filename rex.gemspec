@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths         = ["lib"]
   s.extra_rdoc_files      = ["README.markdown"]
   s.platform              = "ruby"
-  s.required_ruby_version = ">= 2.1.5"
+  s.required_ruby_version = ">= 2.2.0"
 
   # Needed for Javascript obfuscation
   s.add_runtime_dependency 'jsobfu', '~> 0.4.1'
@@ -30,13 +30,8 @@ Gem::Specification.new do |s|
   # Needed by anemone crawler
   s.add_runtime_dependency 'nokogiri'
 
-  # rb-readline doesn't work with Ruby Installer due to error with Fiddle:
-  #   NoMethodError undefined method `dlopen' for Fiddle:Module
-  unless Gem.win_platform?
-    # Command line editing, history, and tab completion in msfconsole
-    # Use the Rapid7 fork until the official gem catches up
-    s.add_runtime_dependency 'rb-readline-r7'
-  end
+  # Command line editing, history, and tab completion in msfconsole
+  s.add_runtime_dependency 'rb-readline'
 
   # Needed by anemone crawler
   s.add_runtime_dependency 'robots'

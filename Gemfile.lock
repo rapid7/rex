@@ -7,22 +7,22 @@ PATH
       json
       metasm (~> 1.0.2)
       nokogiri
-      rb-readline-r7
+      rb-readline
       robots
 
 GEM
   remote: https://rubygems.org/
   specs:
     filesize (0.1.1)
-    jsobfu (0.4.1)
-      rkelly-remix (= 0.0.6)
-    json (1.8.3)
-    metasm (1.0.2)
-    mini_portile2 (2.0.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
-    rb-readline-r7 (0.5.2.0)
-    rkelly-remix (0.0.6)
+    jsobfu (0.4.2)
+      rkelly-remix
+    json (2.1.0)
+    metasm (1.0.3)
+    mini_portile2 (2.2.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
+    rb-readline (0.5.4)
+    rkelly-remix (0.0.7)
     robots (0.10.1)
 
 PLATFORMS
@@ -32,4 +32,4 @@ DEPENDENCIES
   rex!
 
 BUNDLED WITH
-   1.11.2
+   1.15.1
