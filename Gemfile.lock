@@ -1,14 +1,13 @@
 PATH
   remote: .
   specs:
-    rex (2.0.11)
-      filesize
-      jsobfu
-      json
-      metasm
-      nokogiri
-      rb-readline
-      robots
+    rex (2.0.12)
+      filesize (~> 0)
+      jsobfu (~> 0)
+      json (~> 2)
+      metasm (~> 1)
+      nokogiri (~> 1)
+      rb-readline (~> 0)
 
 GEM
   remote: https://rubygems.org/
@@ -21,9 +20,8 @@ GEM
     mini_portile2 (2.2.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
-    rb-readline (0.5.4)
+    rb-readline (0.5.5)
     rkelly-remix (0.0.7)
-    robots (0.10.1)
 
 PLATFORMS
   ruby
@@ -32,4 +30,4 @@ DEPENDENCIES
   rex!
 
 BUNDLED WITH
-   1.15.1
+   1.15.4
