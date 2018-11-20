@@ -79,7 +79,26 @@ begin
     end
 
     # Raise an error if no selected versions are supported
-    if ! OpenSSL::SSL::SSLContext.methods.include? version
+    ssl_ctx_method = [:SSLv23,
+      :SSLv23_client,
+      :SSLv23_server,
+      :SSLv2,
+      :SSLv2_client,
+      :SSLv2_server,
+      :SSLv3,
+      :SSLv3_client,
+      :SSLv3_server,
+      :TLSv1,
+      :TLSv1_client,
+      :TLSv1_server,
+      :TLSv1_1,
+      :TLSv1_1_client,
+      :TLSv1_1_server,
+      :TLSv1_2,
+      :TLSv1_2_client,
+      :TLSv1_2_server
+    ]
+    if ! ssl_ctx_method.include? version version
       raise ArgumentError, 'The system OpenSSL does not support the requested SSL/TLS version'
     end
 
