@@ -79,7 +79,7 @@ begin
     end
 
     # Raise an error if no selected versions are supported
-    if ! OpenSSL::SSL::SSLContext::METHODS.include? version
+    if ! OpenSSL::SSL::SSLContext.methods.include? version
       raise ArgumentError, 'The system OpenSSL does not support the requested SSL/TLS version'
     end
 
