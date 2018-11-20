@@ -50,6 +50,22 @@ begin
   #
   ##
 
+  def self.system_ssl_methods
+    ssl_context = OpenSSL::SSL::SSLContext
+    if ssl_context.const_defined? :METHODS_MAP
+      ssl_context.const_get(:METHODS_MAP).keys
+    else
+      ssl_context::METHODS
+    end
+  end
+
+  def self.supported_ssl_methods
+    @@methods ||= ['Auto', 'TLS'] + system_ssl_methods
+      .reject { |method| method.match(/server|client/) }
+      .select {|m| OpenSSL::SSL::SSLContext.new(m) && true rescue false} \
+      .map {|m| m.to_s.sub(/v/, '').sub('_', '.')}
+  end
+
   #
   # Initializes the SSL socket.
   #
@@ -79,8 +95,9 @@ begin
     end
 
     # Raise an error if no selected versions are supported
-    if ! OpenSSL::SSL::SSLContext::METHODS.include? version
-      raise ArgumentError, 'The system OpenSSL does not support the requested SSL/TLS version'
+    unless Rex::Socket::SslTcp.system_ssl_methods.include? version
+      raise ArgumentError,
+        "This version of Ruby does not support the requested SSL/TLS version #{params.ssl_version}"
     end
 
     # Try intializing the socket with this SSL/TLS version
@@ -366,4 +383,3 @@ rescue LoadError
 end
 
 end
-
